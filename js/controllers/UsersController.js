@@ -6,6 +6,11 @@
             .then(function (response) {
             }, function (a) {
                 console.log(a);
+            });
+
+        usersService.me()
+            .then(function (data) {
+                $scope.me = data;
             })
     }
 

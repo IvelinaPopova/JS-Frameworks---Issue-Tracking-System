@@ -3,9 +3,10 @@
 
     function auth($http, $q, identity, authorization, baseServiceUrl) {
 
-        function signup(user) {
+        function register(user) {
             var deferred = $q.defer();
 
+            console.log(user)
             $http.post(baseServiceUrl + '/api/Account/Register', user)
                 .then(function () {
                     deferred.resolve();
@@ -28,7 +29,6 @@
             user['grant_type'] = 'password';
             $http.post(baseServiceUrl + '/api/Token', 'username=' + user.username + '&password=' + user.password + '&grant_type=password', { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
                 .then(function (response) {
-                    console.log(response)
                     if (response.data["access_token"]) {
                         identity.setCurrentUser(response.data);
                         deferred.resolve(true);
@@ -81,7 +81,7 @@
         }
 
         return {
-            signup: signup,
+            register: register,
             login: login,
             logout: logout,
             isAuthenticated: isAuthenticated,

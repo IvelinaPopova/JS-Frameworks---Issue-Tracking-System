@@ -1,0 +1,38 @@
+<h1>Issue</h1>
+{{issue}}
+<br>
+<strong>Issue key: {{issue.IssueKey}}</strong>
+<br>
+<strong>Title: {{issue.Title}}</strong>
+
+<br>
+<strong>Description: {{issue.Description}}</strong>
+<br>
+<strong>Assignee: {{issue.Assignee.Username}}</strong> <i>(id: {{issue.Assignee.Id}})</i>
+<br>
+
+<strong>Priority: {{issue.Priority.Name}}</strong>
+<br>
+
+<strong>DueDate: {{issue.DueDate}}</strong>
+<br>
+
+<strong>Project: {{issue.Project.Name}}</strong>
+<br>
+
+<strong>Status: {{issue.Status.Name}}</strong>
+<br>
+
+<div ng-show="issue.Labels && issuel.Labels.length > 0">
+    <strong>Labels:</strong>
+    <br>
+    <span>ima labels</span>
+</div>
+<div ng-hide="issue.Labels && issuel.Labels.length > 0">
+    <span>No labels!</span>
+</div>
+
+<strong>AvailableStatuses</strong>
+<div ng-repeat="status in issue.AvailableStatuses">
+    <h4>{{status.Name}}</h4>
+</div>

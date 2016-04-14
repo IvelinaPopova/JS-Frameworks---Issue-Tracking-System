@@ -7,8 +7,13 @@
             return data.get('users');
         }
 
+        function me() {
+            return data.get('users/me');
+        }
+
         return {
-            getAll: getAll
+            getAll: getAll,
+            me: me
         }
     }
 

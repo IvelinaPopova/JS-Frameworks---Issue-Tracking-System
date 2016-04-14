@@ -1,0 +1,57 @@
+<!--REFACTOR-->
+<h1>Project details</h1>
+<strong>KEY: {{project.ProjectKey}}</strong>
+<br>
+<strong>Name: {{project.Name}}</strong>
+<br>
+<strong>Description: {{project.Description}}</strong>
+<br>
+<strong>Leader: {{project.Lead.Name}} </strong>
+<i>(id: {{project.Lead.Id}})</i>
+<br>
+<strong>Labels: </strong>
+<div ng-repeat="label in project.Labels">
+    <span>{{label.Name}}</span>
+</div>
+
+<br>
+<strong>Priorities: </strong>
+<div ng-repeat="priority in project.Priorities">
+    <span>{{priority.Name}}</span>
+</div>
+
+<br>
+<br>
+
+<h1>ISSUES:</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th class="text-center">
+            Title
+        </th>
+        <th class="text-center">
+            Description
+        </th>
+        <th class="text-center">
+            Due Date
+        </th>
+        <th class="text-center">
+            Assignee
+        </th>
+    </tr>
+    <tr ng-repeat="issue in issues" ng-class-even="'even-class'" ng-class-odd="'odd-class'">
+        <td class="text-center">
+            <a href="#/issues/{{issue.Id}}">{{issue.Title}}</a>
+        </td>
+        <td class="text-center">
+            {{issue.Description}}
+        </td>
+        <td class="text-center">
+            {{issue.DueDate}}
+        </td>
+        <td class="text-center">
+            {{issue.Assignee.Username}}
+        </td>
+    </tr>
+</table>

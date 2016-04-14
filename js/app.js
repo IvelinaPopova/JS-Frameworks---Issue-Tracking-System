@@ -14,8 +14,28 @@
                 templateUrl: PARTIALS_PREFIX + 'identity/register.html',
                 controller: 'RegisterController'
             })
+            .when('/login', {
+                templateUrl: PARTIALS_PREFIX + 'identity/login.html',
+                controller: 'LoginController'
+            })
             .when('/users', {
-                templateUrl: PARTIALS_PREFIX + 'users.html',
+                templateUrl: PARTIALS_PREFIX + 'users/users.html',
+                controller: 'UsersController'
+            })
+            .when('/projects', {
+                templateUrl: PARTIALS_PREFIX + 'projects/projects.html',
+                controller: 'ProjectsController'
+            })
+            .when('/projects/:id', {
+                templateUrl: PARTIALS_PREFIX + 'projects/project-details.html',
+                controller: 'ProjectDetailsController'
+            })
+            .when('/issues/:id', {
+                templateUrl: PARTIALS_PREFIX + 'issues/issue-details.html',
+                controller: 'IssueDetailsController'
+            })
+            .when('/me', {
+                templateUrl: PARTIALS_PREFIX + 'users/me.html',
                 controller: 'UsersController'
             })
             .when('/unauthorized', {

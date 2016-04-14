@@ -2,6 +2,7 @@
     'use strict';
 
     function HomeController($scope, identity) {
+        $scope.identity = identity;
     }
 
     angular

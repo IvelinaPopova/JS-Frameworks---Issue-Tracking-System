@@ -2,8 +2,8 @@
     'use strict';
 
     function RegisterController($scope, $location, auth, notify) {
-        $scope.signup = function (user) {
-            auth.signup(user).then(function () {
+        $scope.register = function (user) {
+            auth.register(user).then(function () {
                 $location.path('/');
             }, function (error) {
                 console.log(error);
