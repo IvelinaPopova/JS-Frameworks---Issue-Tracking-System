@@ -33,7 +33,7 @@
         return {
             getCurrentUser: getCurrentUser,
             setCurrentUser: setCurrentUser,
-            isAuthenticated:isAuthenticated
+            isAuthenticated: isAuthenticated
         }
     }
 

@@ -8,6 +8,11 @@
             .then(function (issue) {
                 $scope.issue = issue;
             });
+
+        issuesService.getCommentsById(issueId)
+            .then(function (comments) {
+                $scope.comments = comments;
+            })
     }
 
     angular

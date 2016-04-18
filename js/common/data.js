@@ -33,8 +33,19 @@
             return defered.promise;
         }
 
-        function put() {
-            throw new Error('Not implemented!');
+        function put(url, data) {
+            var defered = $q.defer();
+
+            var authHeader = authorization.getAuthorizationHeader();
+
+            $http.put(baseServiceUrl + '/' + url, data, { headers: authHeader})
+                .then(function (response) {
+                    defered.resolve(response.data);
+                }, function (error) {
+                    defered.reject(error);
+                });
+
+            return defered.promise;
         }
 
         return {

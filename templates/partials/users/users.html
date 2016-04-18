@@ -1,1 +1,12 @@
-﻿<div>users</div>
+﻿<h1>Admins</h1>
+<div ng-repeat="admin in admins">
+    <span>{{admin.Username}}</span>
+</div>
+
+<h1>Users</h1>
+<div ng-repeat="user in users">
+    <span>{{user.Username}}</span>
+    <button ng-click="makeAdmin(user.Id)" class="btn btn-primary">
+        Make admin
+    </button>
+</div>

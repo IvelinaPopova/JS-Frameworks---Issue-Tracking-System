@@ -1,5 +1,4 @@
 <h1>Issue</h1>
-{{issue}}
 <br>
 <strong>Issue key: {{issue.IssueKey}}</strong>
 <br>
@@ -35,4 +34,14 @@
 <strong>AvailableStatuses</strong>
 <div ng-repeat="status in issue.AvailableStatuses">
     <h4>{{status.Name}}</h4>
+</div>
+<br>
+<h1>COMMENTS:</h1>
+<div ng-repeat="comment in comments">
+    <span>{{comment.Text}}</span>
+    <br>
+    --by <i>{{comment.Author.Username}}</i>
+    <br>
+    --on <i>{{comment.CreatedOn}}</i>
+    <hr>
 </div>

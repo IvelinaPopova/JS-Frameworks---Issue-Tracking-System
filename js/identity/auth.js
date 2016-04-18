@@ -6,7 +6,6 @@
         function register(user) {
             var deferred = $q.defer();
 
-            console.log(user)
             $http.post(baseServiceUrl + '/api/Account/Register', user)
                 .then(function () {
                     deferred.resolve();
@@ -67,17 +66,15 @@
         }
 
         function isAdmin() {
-            if (identity.isAuthenticated()) {
-                $http.get(baseServiceUrl + '/users/me')
-                    .then(function (userInfo) {
-                        if (userInfo.isAdmin) {
-                            return true;
-                        }
-                    });
-            }
-            else {
-                return $q.reject('not authorized');
-            }
+            var deferred = $q.defer();
+            var headers = authorization.getAuthorizationHeader();
+
+            $http.get(baseServiceUrl + '/users/me', {headers: headers})
+                .then(function (response) {
+                    deferred.resolve(response.data.isAdmin);
+                });
+
+            return deferred.promise;
         }
 
         return {

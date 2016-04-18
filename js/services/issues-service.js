@@ -11,9 +11,19 @@
             return data.get('projects/' + projectId + '/issues');
         }
 
+        function getCommentsById(issueId) {
+            return data.get('issues/' + issueId + '/comments');
+        }
+
+        function filterIssues(filter) {
+            return data.get('issues/me' + filter);
+        }
+
         return {
             getById: getById,
-            getByProjectId: getByProjectId
+            getByProjectId: getByProjectId,
+            getCommentsById: getCommentsById,
+            filterIssues: filterIssues
         }
     }
 

@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="css/bootstrap-theme.css" />
     <link rel="stylesheet" href="css/app.css" />
 
-    <!--Angular-->
     <script type="text/javascript" src="lib/angular/angular.js"></script>
 </head>
 <body ng-app="issueTrackingSystem" ng-cloak>
@@ -23,25 +22,10 @@
                 </button>
             </div>
             <div class="navbar-collapse collapse" id="navbar-main">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#/users">Users</a>
-                    </li>
-                    <li>
-                        <a href="#/projects">All Projects</a>
-                    </li>
-                    <li>
-                        <a href="#/me">ME</a>
-                    </li>
-                    <li>
-                        <a href="#/projects"></a>
-                    </li>
-                    <li>
-                        <a href="#/users"></a>
-                    </li>
-                </ul>
+
+                <div ng-include="'templates/partials/common/menu-bar.html'"></div>
                 <ul ng-controller="LoginController" ng-show="identity.isAuthenticated()" class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
+                    <li>
                         <a href="#/" ng-click="logout()" class="btn btn-default">Sign Out</a>
                     </li>
                 </ul>
@@ -57,7 +41,6 @@
     <script type="text/javascript" src="lib/jquery.noty/jquery.noty.js"></script>
     <script type="text/javascript" src="lib/bootstrap/bootstrap-3.1.1.js"></script>
     <script type="text/javascript" src="lib/ui.bootstrap/ui.bootstrap.pagination-0.12.0.js"></script>
-
     <script type="text/javascript" src="lib/angular/angular-resource.js"></script>
     <script type="text/javascript" src="lib/angular/angular-route.js"></script>
     <script type="text/javascript" src="lib/angular/angular-cookies.js"></script>
