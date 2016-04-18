@@ -11,9 +11,14 @@
             return data.get('projects/' + id);
         }
 
+        function create(project) {
+            return data.post('projects/', project);
+        }
+
         return {
             getAll: getAll,
-            getById: getById
+            getById: getById,
+            create: create
         }
     }
 
