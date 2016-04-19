@@ -15,10 +15,18 @@
             return data.post('projects/', project);
         }
 
+        function getPrioritiesByProjectId(projectId) {
+            return data.get('projects/' + projectId)
+                .then(function (project) {
+                    return project.Priorities;
+                })
+        }
+
         return {
             getAll: getAll,
             getById: getById,
-            create: create
+            create: create,
+            getPrioritiesByProjectId: getPrioritiesByProjectId
         }
     }
 

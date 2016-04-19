@@ -23,7 +23,7 @@
                     console.log('heeeeeeeee');
                     console.log(response);
                 });
-        }
+        };
     }
 
     angular

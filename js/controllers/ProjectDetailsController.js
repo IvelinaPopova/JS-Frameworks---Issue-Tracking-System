@@ -7,6 +7,7 @@
         projectsService.getById(projectId)
             .then(function (project) {
                 $scope.project = project;
+                console.log(project)
             });
 
         issuesService.getByProjectId(projectId)

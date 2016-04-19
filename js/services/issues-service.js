@@ -19,11 +19,16 @@
             return data.get('issues/me' + filter);
         }
 
+        function create(issue) {
+            return data.post('issues', issue);
+        }
+
         return {
             getById: getById,
             getByProjectId: getByProjectId,
             getCommentsById: getCommentsById,
-            filterIssues: filterIssues
+            filterIssues: filterIssues,
+            create: create
         }
     }
 

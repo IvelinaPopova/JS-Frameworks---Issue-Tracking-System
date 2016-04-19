@@ -30,6 +30,10 @@
                 templateUrl: PARTIALS_PREFIX + 'projects/create-project.html',
                 controller: 'ProjectCreateController'
             })
+            .when('/projects/:id/add-issue', {
+                templateUrl: PARTIALS_PREFIX + 'issues/create-issue.html',
+                controller: 'IssueCreateController'
+            })
             .when('/projects/:id', {
                 templateUrl: PARTIALS_PREFIX + 'projects/project-details.html',
                 controller: 'ProjectDetailsController'
