@@ -46,6 +46,10 @@
                 templateUrl: PARTIALS_PREFIX + 'users/me.html',
                 controller: 'UsersController'
             })
+            .when('/profile/password', {
+                templateUrl: PARTIALS_PREFIX + 'users/change-password.html',
+                controller: 'UserChangePasswordController'
+            })
             .when('/unauthorized', {
                 template: '<h1 class="text-center">YOU ARE NOT AUTHORIZED!</h1>'
             })

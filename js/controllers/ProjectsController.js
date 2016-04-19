@@ -3,6 +3,7 @@
 
     function ProjectsController($scope, identity, projectsService) {
         $scope.identity = identity;
+
         projectsService.getAll()
             .then(function (data) {
                 $scope.projects = data;

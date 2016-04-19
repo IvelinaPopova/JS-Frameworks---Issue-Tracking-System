@@ -15,6 +15,16 @@
             return data.post('projects/', project);
         }
 
+        function getProjectsUserIsLead(userId) {
+            return data.get('projects')
+                .then(function (projects) {
+                    return projects.filter(function (project) {
+                        return project.Lead.Id === userId;
+                    });
+
+                });
+        }
+
         function getPrioritiesByProjectId(projectId) {
             return data.get('projects/' + projectId)
                 .then(function (project) {
@@ -26,7 +36,8 @@
             getAll: getAll,
             getById: getById,
             create: create,
-            getPrioritiesByProjectId: getPrioritiesByProjectId
+            getPrioritiesByProjectId: getPrioritiesByProjectId,
+            getProjectsUserIsLead: getProjectsUserIsLead
         }
     }
 

@@ -1,21 +1,26 @@
 (function () {
     'use strict';
 
-    function HomeController($scope, identity, issuesService) {
+    function HomeController($scope, identity, projectsService, usersService, issuesService) {
         $scope.identity = identity;
 
-        $scope.filterIssues = function () {
-            issuesService.filterIssues(request)
-                .then(function (filteredIssues) {
-                    console.log(filteredIssues)
-                    $scope.issues = filteredIssues;
-                });
-        };
+        usersService.me()
+            .then(function (user) {
+                projectsService.getProjectsUserIsLead(user.Id)
+                    .then(function (projects) {
+                        $scope.leaderInProjects = projects;
+                    });
+            });
+
+        issuesService.filterMineIssues('?pageSize=20&pageNumber=1&orderBy=Priority.Name')
+            .then(function (data) {
+                console.log(data)
+            })
 
 
     }
 
     angular
         .module('issueTrackingSystem.controllers')
-        .controller('HomeController', ['$scope', 'identity', 'issuesService', HomeController])
+        .controller('HomeController', ['$scope', 'identity', 'projectsService', 'usersService', 'issuesService', HomeController])
 }());

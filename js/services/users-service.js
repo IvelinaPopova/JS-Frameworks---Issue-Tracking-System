@@ -11,6 +11,11 @@
             return data.get('users/me');
         }
 
+        function changePassword(information) {
+            console.log(information)
+            return data.post('api/account/changePassword', information);
+        }
+
         function makeAdmin(userId) {
             var putData = { UserId : userId };
 
@@ -22,8 +27,9 @@
 
         return {
             getAll: getAll,
-            makeAdmin: makeAdmin,
-            me: me
+            me: me,
+            changePassword: changePassword,
+            makeAdmin: makeAdmin
         }
     }
 

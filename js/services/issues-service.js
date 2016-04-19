@@ -15,7 +15,7 @@
             return data.get('issues/' + issueId + '/comments');
         }
 
-        function filterIssues(filter) {
+        function filterMineIssues(filter) {
             return data.get('issues/me' + filter);
         }
 
@@ -27,7 +27,7 @@
             getById: getById,
             getByProjectId: getByProjectId,
             getCommentsById: getCommentsById,
-            filterIssues: filterIssues,
+            filterMineIssues: filterMineIssues,
             create: create
         }
     }

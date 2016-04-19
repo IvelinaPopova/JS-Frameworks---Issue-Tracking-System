@@ -6,3 +6,17 @@
         <h2>Projects, Issues and Labels - All togther!</h2>
     </div>
 </div>
+
+<h2>Affiliated Projects</h2>
+<div ng-show="leaderInProjects && leaderInProjects.length > 0">
+    <div ng-repeat="project in leaderInProjects">
+        <h3>
+            <a href="#/projects/{{project.Id}}">{{project.Name}}</a>
+        </h3>
+
+    </div>
+</div>
+
+<div ng-hide="leaderInProjects && leaderInProjects.length > 0">
+    No projects
+</div>
