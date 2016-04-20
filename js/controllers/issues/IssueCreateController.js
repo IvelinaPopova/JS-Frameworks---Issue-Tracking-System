@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    function IssueCreateController($scope, $routeParams, issuesService, projectsService, usersService) {
+    function IssueCreateController($scope, $routeParams, $location, notify, issuesService, projectsService, usersService, labelsService) {
         var projectId = $routeParams.id;
 
         usersService.getAll()
@@ -12,23 +12,39 @@
         projectsService.getById(projectId)
             .then(function (project) {
                 $scope.project = project;
-                $scope.priorities = project.Priorities;
             });
 
         $scope.createIssue = function (newIssue) {
+            var label = $('#label').val();
+            newIssue.Labels =[{Name: label}];
+
             newIssue.ProjectId = projectId;
             newIssue.DueDate = '2016/03/21';
-            console.log(newIssue);
             issuesService.create(newIssue)
-                .then(function (response) {
-                    console.log(response);
+                .then(function (createdIssue) {
+                    $location.path('issues/' + createdIssue.Id);
+                    notify.showInfo('Successful created issue!');
                 }, function (error) {
-                    console.log(error);
                 });
+        };
+
+        $scope.filterLabels = function (label) {
+            labelsService.getAllByFilter(label)
+                .then(function (labels) {
+                    var labelsNames = [];
+
+                    labels.forEach(function (el) {
+                        labelsNames.push(el.Name);
+                    });
+
+                    $(".autocomplete").autocomplete({
+                        source: labelsNames
+                    });
+                })
         };
     }
 
     angular
         .module('issueTrackingSystem.controllers')
-        .controller('IssueCreateController', ['$scope', '$routeParams', 'issuesService', 'projectsService', 'usersService', IssueCreateController])
+        .controller('IssueCreateController', ['$scope', '$routeParams', '$location', 'notify', 'issuesService', 'projectsService', 'usersService', 'labelsService', IssueCreateController])
 }());
