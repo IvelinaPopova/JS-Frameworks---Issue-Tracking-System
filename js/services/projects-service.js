@@ -15,6 +15,10 @@
             return data.post('projects/', project);
         }
 
+        function edit(id, project) {
+            return data.put('projects/' + id, project);
+        }
+
         function getProjectsUserIsLead(userId) {
             return data.get('projects')
                 .then(function (projects) {
@@ -36,6 +40,7 @@
             getAll: getAll,
             getById: getById,
             create: create,
+            edit: edit,
             getPrioritiesByProjectId: getPrioritiesByProjectId,
             getProjectsUserIsLead: getProjectsUserIsLead
         }
