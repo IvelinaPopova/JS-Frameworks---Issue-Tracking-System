@@ -23,12 +23,22 @@
             return data.post('issues', issue);
         }
 
+        function changeStatus(issueId, statusId) {
+            return data.put('issues/' + issueId + '/changestatus?statusid=' + statusId);
+        }
+
+        function addComment(issueId, comment) {
+            return data.post('issues/' + issueId + '/comments', comment);
+        }
+
         return {
             getById: getById,
+            create: create,
             getByProjectId: getByProjectId,
             getCommentsById: getCommentsById,
             filterMineIssues: filterMineIssues,
-            create: create
+            changeStatus: changeStatus,
+            addComment: addComment
         }
     }
 
