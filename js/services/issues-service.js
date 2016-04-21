@@ -23,6 +23,10 @@
             return data.post('issues', issue);
         }
 
+        function edit(issueId, issue) {
+            return data.put('issues/' + issueId, issue);
+        }
+
         function changeStatus(issueId, statusId) {
             return data.put('issues/' + issueId + '/changestatus?statusid=' + statusId);
         }
@@ -34,6 +38,7 @@
         return {
             getById: getById,
             create: create,
+            edit: edit,
             getByProjectId: getByProjectId,
             getCommentsById: getCommentsById,
             filterMineIssues: filterMineIssues,

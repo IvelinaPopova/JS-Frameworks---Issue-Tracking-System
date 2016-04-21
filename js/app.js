@@ -43,6 +43,10 @@
                 templateUrl: PARTIALS_PREFIX + 'projects/project-details.html',
                 controller: 'ProjectDetailsController'
             })
+            .when('/issues/:id/edit', {
+                templateUrl: PARTIALS_PREFIX + 'issues/edit-issue.html',
+                controller: 'IssueEditController'
+            })
             .when('/issues/:id', {
                 templateUrl: PARTIALS_PREFIX + 'issues/issue-details.html',
                 controller: 'IssueDetailsController'
