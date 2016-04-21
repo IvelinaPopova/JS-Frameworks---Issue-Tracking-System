@@ -4,10 +4,12 @@
     function MenuController($scope, identity, auth) {
         $scope.identity = identity;
 
-        auth.isAdmin()
-            .then(function (isAdmin) {
-                $scope.isAdmin = isAdmin;
-            });
+        if (identity.isAuthenticated()) {
+            auth.isAdmin()
+                .then(function (isAdmin) {
+                    $scope.isAdmin = isAdmin;
+                });
+        }
     }
 
     angular

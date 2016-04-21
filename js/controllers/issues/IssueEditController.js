@@ -3,6 +3,7 @@
 
     function IssueEditController($scope, $routeParams, issuesService, projectsService, usersService) {
         var issueId = $routeParams.id;
+
         issuesService.getById(issueId)
             .then(function (issue) {
                 $scope.issue = issue;
