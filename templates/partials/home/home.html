@@ -43,7 +43,12 @@
                     <h3 class="panel-title">Issues</h3>
                 </div>
                 <div class="panel-body">
-                    a
+                    <div all-issues></div>
+                    <span ng-repeat="p in [] | range:totalPages">
+                        <button ng-click="selectedPage(p)" class="btn bg-primary">{{p + 1}}</button>
+                    </span>
+                    <br>
+
                 </div>
             </div>
         </div>

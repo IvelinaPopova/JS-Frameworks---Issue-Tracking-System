@@ -5,7 +5,6 @@
         $scope.identity = identity;
 
         if (identity.isAuthenticated()) {
-
             usersService.me()
                 .then(function (user) {
                     projectsService.getProjectsUserIsLead(user.Id)
@@ -14,9 +13,23 @@
                         });
                 });
 
-            issuesService.filterMineIssues('?pageSize=20&pageNumber=1&orderBy=Priority.Name')
+            $scope.currentPage = 1;
+            $scope.pageSize = 3;
+
+            issuesService.filterMineIssues('?pageSize=' + $scope.pageSize + '&pageNumber=1&orderBy=Project.Name')
                 .then(function (data) {
+                    $scope.issues = data.Issues;
+                    $scope.totalPages = data.TotalPages;
                 });
+
+            $scope.selectedPage = function (pageNumber) {
+                pageNumber++;
+                issuesService.filterMineIssues('?pageSize=' + $scope.pageSize + '&pageNumber=' + pageNumber + '&orderBy=Project.Name')
+                    .then(function (data) {
+                        $scope.issues = data.Issues;
+                        $scope.totalPages = data.TotalPages;
+                    });
+            };
 
             statisticsService.getStatistics()
                 .then(function (stats) {

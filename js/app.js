@@ -70,7 +70,7 @@
     angular.module('issueTrackingSystem.filters', []);
     angular.module('issueTrackingSystem.controllers', ['issueTrackingSystem.services']);
 
-    angular.module('issueTrackingSystem', ['ngRoute', 'ngCookies', 'ngMaterial', 'issueTrackingSystem.controllers', 'issueTrackingSystem.directives', 'issueTrackingSystem.filters'])
+    angular.module('issueTrackingSystem', ['ngRoute', 'ngCookies', 'ngAnimate', 'ui.bootstrap', 'ngMaterial', 'issueTrackingSystem.controllers', 'issueTrackingSystem.directives', 'issueTrackingSystem.filters'])
         .config(['$routeProvider', config])
         .constant('noty', noty)
         .constant('baseServiceUrl', 'http://softuni-issue-tracker.azurewebsites.net');

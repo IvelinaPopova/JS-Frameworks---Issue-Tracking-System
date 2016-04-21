@@ -27,10 +27,10 @@
             issuesService.changeStatus(issueId, statusId)
                 .then(function (response) {
                     console.log('issue change status response');
-                    console.log(response);
+                    //console.log(response);
                 },function (error) {
                     console.log('issue change status error');
-                    console.log(error);
+                    //console.log(error);
                 });
         };
 
