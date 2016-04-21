@@ -3,6 +3,7 @@
 
     function IssueCreateController($scope, $routeParams, $location, notify, issuesService, projectsService, usersService, labelsService) {
         var projectId = $routeParams.id;
+        $scope.DueDate = new Date();
 
         usersService.getAll()
             .then(function (response) {
@@ -19,12 +20,12 @@
             newIssue.Labels =[{Name: label}];
 
             newIssue.ProjectId = projectId;
-            newIssue.DueDate = '2016/03/21';
             issuesService.create(newIssue)
                 .then(function (createdIssue) {
                     $location.path('issues/' + createdIssue.Id);
                     notify.showInfo('Successful created issue!');
                 }, function (error) {
+                    console.log(error)
                 });
         };
 

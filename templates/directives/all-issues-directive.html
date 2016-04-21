@@ -21,7 +21,7 @@
             {{issue.Description}}
         </td>
         <td class="text-center">
-            {{issue.DueDate}}
+            {{issue.DueDate | dateFilter}}
         </td>
         <td class="text-center">
             {{issue.Assignee.Username}}

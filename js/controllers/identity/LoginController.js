@@ -8,8 +8,9 @@
             if (loginForm.$valid) {
                 auth.login(user)
                     .then(function (success) {
-                        notify.showInfo('Successful login!');
                         $location.path('/');
+                        location.reload();
+                        notify.showInfo('Successful login!');
                     }, function (error) {
                         notify.showError(error);
                     });

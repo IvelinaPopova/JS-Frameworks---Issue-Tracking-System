@@ -9,6 +9,13 @@
             });
 
         $scope.createProject = function (newProject) {
+            var projectKey = '';
+
+            newProject.Name.split(' ').forEach(function (element) {
+                projectKey += element.charAt(0);
+            });
+            newProject.ProjectKey = projectKey;
+
             var label = $('#label').val();
             newProject.Labels =[{Name: label}];
 

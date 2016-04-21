@@ -34,7 +34,7 @@
             </h5>
             <h5>
                 <strong>Due Date:</strong>
-                <i>{{issue.DueDate}}</i>
+                <i>{{issue.DueDate | dateFilter}}</i>
             </h5>
             <h5>
                 <strong>Author:</strong>
@@ -81,7 +81,7 @@
                 <div ng-repeat="comment in comments">
                     <blockquote>
                         <p>{{comment.Text}}</p>
-                        <small>{{comment.Author.Username}} on <cite>{{comment.CreatedOn}}</cite></small>
+                        <small>{{comment.Author.Username}} on <cite>{{comment.CreatedOn | dateFilter}}</cite></small>
                     </blockquote>
                 </div>
                 <div class="col-lg-10">

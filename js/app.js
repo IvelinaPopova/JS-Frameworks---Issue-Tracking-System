@@ -30,6 +30,7 @@
                 templateUrl: PARTIALS_PREFIX + 'projects/create-project.html',
                 controller: 'ProjectCreateController'
             })
+
             .when('/projects/:id/edit', {
                 templateUrl: PARTIALS_PREFIX + 'projects/edit-project.html',
                 controller: 'ProjectEditController'
@@ -69,7 +70,7 @@
     angular.module('issueTrackingSystem.filters', []);
     angular.module('issueTrackingSystem.controllers', ['issueTrackingSystem.services']);
 
-    angular.module('issueTrackingSystem', ['ngRoute', 'ngCookies', 'issueTrackingSystem.controllers', 'issueTrackingSystem.directives', 'issueTrackingSystem.filters'])
+    angular.module('issueTrackingSystem', ['ngRoute', 'ngCookies', 'ngMaterial', 'issueTrackingSystem.controllers', 'issueTrackingSystem.directives', 'issueTrackingSystem.filters'])
         .config(['$routeProvider', config])
         .constant('noty', noty)
         .constant('baseServiceUrl', 'http://softuni-issue-tracker.azurewebsites.net');

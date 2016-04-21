@@ -10,7 +10,7 @@
                 .then(function () {
                     deferred.resolve();
                 }, function (response) {
-                    var error = response.data.modelState;
+                    var error = response.data.ModelState;
                     if (error && error[Object.keys(error)[0]][0]) {
                         error = error[Object.keys(error)[0]][0];
                     }
