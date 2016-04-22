@@ -24,7 +24,6 @@
                     notify.showInfo('Successfully changed passowrd');
                     $location.path('/');
                 }, function (err) {
-                    console.log(err)
                     notify.showError(err.data.ModelState[Object.keys(err.data.ModelState)[0]][0]);
                 });
         }

@@ -19,6 +19,10 @@
             return data.get('issues/me' + filter);
         }
 
+        function filterIssues(filter) {
+            return data.get('issues/' + filter);
+        }
+
         function create(issue) {
             return data.post('issues', issue);
         }
@@ -39,6 +43,7 @@
             getById: getById,
             create: create,
             edit: edit,
+            filterIssues: filterIssues,
             getByProjectId: getByProjectId,
             getCommentsById: getCommentsById,
             filterMineIssues: filterMineIssues,

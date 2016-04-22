@@ -46,7 +46,14 @@
                 </div>
                 <div class="panel-body">
                     <div ng-hide="issues && issues.length > 0">No Issues</div>
-                    <div ng-show="issues && issues.length > 0" all-issues/>
+
+                    <div ng-show="issues && issues.length > 0">
+                        <div all-issues />
+                        <span ng-repeat="p in [] | range:totalPages">
+                            <button ng-click="selectedPage(p)" class="btn bg-primary">{{p + 1}}</button>
+                        </span>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
