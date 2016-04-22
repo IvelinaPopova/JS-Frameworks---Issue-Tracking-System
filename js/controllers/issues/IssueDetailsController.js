@@ -28,6 +28,7 @@
                 .then(function (response) {
                     console.log('issue change status response');
                     console.log(response);
+                    location.reload();
                 },function (error) {
                     console.log('issue change status error');
                     console.log(error);
@@ -37,11 +38,12 @@
         $scope.addComment = function (issueId, commentContent) {
             issuesService.addComment(issueId, { Text: commentContent})
                 .then(function (response) {
-                    console.log('issue comment add response');
-                    console.log(response);
+                    location.reload();
+                    //console.log('issue comment add response');
+                    //console.log(response);
                 },function (error) {
-                    console.log('issue comment add error');
-                    console.log(error);
+                    //console.log('issue comment add error');
+                    //console.log(error);
                 });
         };
     }
